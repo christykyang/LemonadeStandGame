@@ -15,7 +15,6 @@ namespace LemonadeStand_3DayStarter
         {
             name = "lemon";
         }
-
         // member methods (CAN DO)
     }
 }

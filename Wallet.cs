@@ -28,5 +28,10 @@ namespace LemonadeStand_3DayStarter
         {
             money -= transactionAmount;
         }
+        public void GetMoneyFromCustomer(double lemonadePrice)
+        {
+            money += lemonadePrice;
+
+        }
     }
 }

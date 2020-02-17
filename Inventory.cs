@@ -13,6 +13,10 @@ namespace LemonadeStand_3DayStarter
         public List<SugarCube> sugarCubes;
         public List<IceCube> iceCubes;
         public List<Cup> cups;
+        public int numberOfCups;
+        public int numberOfLemons;
+        public int numberOfSugarCubes;
+        public int numberOfIceCubes;
 
         // constructor (SPAWNER)
         public Inventory()
@@ -24,6 +28,13 @@ namespace LemonadeStand_3DayStarter
         }
 
         // member methods (CAN DO)
+        public void PopulateInventory()
+        {
+            AddCupsToInventory(numberOfCups);
+            AddIceCubesToInventory(numberOfIceCubes);
+            AddLemonsToInventory(numberOfLemons);
+            AddSugarCubesToInventory(numberOfSugarCubes);
+        }
         public void AddLemonsToInventory(int numberOfLemons)
         {
             for(int i = 0; i < numberOfLemons; i++)
