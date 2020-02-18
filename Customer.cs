@@ -20,6 +20,7 @@ namespace LemonadeStand_3DayStarter
         public Customer()
         {
             howMuchMoney = 20;
+            CustomerList(ListOfCustomers);
             RandomCustomerGenerator();
         }
 
@@ -40,41 +41,47 @@ namespace LemonadeStand_3DayStarter
             name = ListOfCustomers[index];
             Console.WriteLine(name);
         }
-        public void HowMuchLemonadeToBuy(Player player, Weather weather, Recipe recipe)
+        public void HowMuchLemonadeToBuy(Player player, Weather weather, Recipe recipe, Pitcher pitcher)
         {
-             if (weather.weatherCondition == weather.ListOfWeatherConditions[1] && weather.temperature >= 70)
+             if (weather.weatherCondition == weather.ListOfWeatherConditions[1] && weather.temperature >= 70 && recipe.pricePerCup <= 0.25)
             {
                 amountOfLemonadeBuying = random.Next(4);
-                BuyLemonade(player, recipe);
+                BuyLemonade(player, recipe, pitcher);
             }
-            else if (weather.weatherCondition == weather.ListOfWeatherConditions[2] && weather.temperature >= 70)
+            else if (weather.weatherCondition == weather.ListOfWeatherConditions[2] && weather.temperature >= 70 && recipe.pricePerCup <= 0.25)
             {
                 amountOfLemonadeBuying = random.Next(10);
-                BuyLemonade(player, recipe);
+                BuyLemonade(player, recipe, pitcher);
             }
-            else if (weather.weatherCondition == weather.ListOfWeatherConditions[3] && weather.temperature >= 70)
+            else if (weather.weatherCondition == weather.ListOfWeatherConditions[3] && weather.temperature >= 70 && recipe.pricePerCup <= 0.25)
             {
                 amountOfLemonadeBuying = random.Next(7);
-                BuyLemonade(player, recipe);
+                BuyLemonade(player, recipe, pitcher);
             }
-            else if (weather.weatherCondition == weather.ListOfWeatherConditions[4] && weather.temperature >= 70)
+            else if (weather.weatherCondition == weather.ListOfWeatherConditions[4] && weather.temperature >= 70 && recipe.pricePerCup <= 0.25)
             {
                 amountOfLemonadeBuying = random.Next(4);
-                BuyLemonade(player, recipe);
+                BuyLemonade(player, recipe, pitcher);
             }
+            else if (recipe.pricePerCup <= 0.10)
+            {
+                amountOfLemonadeBuying = random.Next(10);
+                BuyLemonade(player, recipe, pitcher);
+            } 
             else 
             {
                 amountOfLemonadeBuying = random.Next(2);
-                BuyLemonade(player, recipe);
+                BuyLemonade(player, recipe, pitcher);
             }
         }
-        public void BuyLemonade(Player player, Recipe recipe)
+        public void BuyLemonade(Player player, Recipe recipe, Pitcher pitcher)
         {
             bool index = random.Next(2) == 0;
             buyLemonade = index;
             pricePerCup = recipe.pricePerCup;
-            if (buyLemonade == true)
+            if (buyLemonade == true && pitcher.numberOfCupsinPitcher <= 0)
             {
+                player.MakeNewPitcher();
                 PayForLemonade(recipe);
                 player.wallet.GetMoneyFromCustomer(pricePerCup);
             }

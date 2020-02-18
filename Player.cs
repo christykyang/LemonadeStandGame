@@ -10,6 +10,7 @@ namespace LemonadeStand_3DayStarter
     {
         // member variables (HAS A)
         public string name;
+        public int numberOfItems;
         public Inventory inventory;
         public Wallet wallet;
         public Pitcher pitcher;
@@ -28,10 +29,21 @@ namespace LemonadeStand_3DayStarter
         // member methods (CAN DO)
         public void MakeNewPitcher()
         {
-            if (pitcher.numberOfCupsinPitcher == 1)
+            if (pitcher.numberOfCupsinPitcher == 0)
             {
                 pitcher = new Pitcher();
             }
+        }
+        public void QualityControl()
+        {
+            Console.WriteLine("How much ice would you like to add per pitcher?");
+            ChooseAmountOfIce(int.Parse(Console.ReadLine()));
+            Console.WriteLine("How much lemon would you like to add per pitcher?");
+            ChooseAmountOfLemon(int.Parse(Console.ReadLine()));
+            Console.WriteLine("How much sugar would you like to add per pitcher?");
+            ChooseAmountOfSugar(int.Parse(Console.ReadLine()));
+            Console.WriteLine("How much are you charging per cup?");
+            ChooseChargingPrice(int.Parse(Console.ReadLine()));
         }
         public void ChooseAmountOfLemon(int lemons)
         {
@@ -49,9 +61,15 @@ namespace LemonadeStand_3DayStarter
         {
             recipe.pricePerCup = price;
         }
-        public void BuyFromStore()
+        public void BuyFromStore(Store store)
         {
-
+            Console.WriteLine("You currently have " + inventory.numberOfLemons + " amount of lemons.");
+            Console.WriteLine("Would you like to buy more? (yes or no)");
+            if (Console.ReadLine() == "yes")
+            {
+                Console.WriteLine("How much would you like to purchase? Lemons are 5 cents each.");
+                
+            }
         }
     }
 }

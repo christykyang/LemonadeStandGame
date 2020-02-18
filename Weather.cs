@@ -16,10 +16,9 @@ namespace LemonadeStand_3DayStarter
         //constructor (spawner)
         public Weather()
         {
+            random = new Random();
             ListOfWeatherConditions = new List<string>();
             PopulateOfWeatherConditions(ListOfWeatherConditions);
-            RandomWeatherGenerator();
-            RandomTemperatureGenerator();
         }
 
         //member methods (CAN DO)
@@ -27,13 +26,13 @@ namespace LemonadeStand_3DayStarter
         {
             int index = random.Next(ListOfWeatherConditions.Count);
             weatherCondition = ListOfWeatherConditions[index];
-            Console.WriteLine(weatherCondition);
+            Console.WriteLine("Today is " + weatherCondition);
         }
         public void RandomTemperatureGenerator()
-        {
+        {   
             int index = random.Next(50, 95);
             temperature = index;
-            Console.WriteLine(temperature);
+            Console.WriteLine("with a temperature of " + temperature);
         }
         public void PopulateOfWeatherConditions(List<string> condition)
         {
