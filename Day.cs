@@ -10,19 +10,26 @@ namespace LemonadeStand_3DayStarter
     {
         //member variables (HAS A)
         Weather weather;
+        public int numberOfCustomers;
+        Customer customer;
         public List<Customer> customers;
+        Random random;
         //constructor (spawner)
         public Day()
         {
-            
+            customers = new List<Customer>();
+            numberOfCustomers = GenerateRandomNumberOfCustomers();
         }
         //member methods (CAN DO)
-        public void NumberOfCustomersForWeather()
+        //public void GenerateCustomers()
+        //{
+
+        //}
+        public int GenerateRandomNumberOfCustomers()
         {
-            if (weather.temperature <= 60 && (weather.weatherCondition == weather.ListOfWeatherConditions[0])
-            {
-                
-            }
+            int index = random.Next(4, 120);
+            numberOfCustomers = index;
+            return numberOfCustomers;
         }
     }
 }
