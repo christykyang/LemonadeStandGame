@@ -82,6 +82,13 @@ namespace LemonadeStand_3DayStarter
             if (buyLemonade == true && pitcher.numberOfCupsinPitcher <= 0)
             {
                 player.MakeNewPitcher();
+                player.pitcher.SoldCupOfLemonade();
+                PayForLemonade(recipe);
+                player.wallet.GetMoneyFromCustomer(pricePerCup);
+            }
+            else
+            {
+                player.pitcher.SoldCupOfLemonade();
                 PayForLemonade(recipe);
                 player.wallet.GetMoneyFromCustomer(pricePerCup);
             }

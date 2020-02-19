@@ -10,7 +10,6 @@ namespace LemonadeStand_3DayStarter
     {
         // member variables (HAS A)
         public string name;
-        public int numberOfItems;
         public Inventory inventory;
         public Wallet wallet;
         public Pitcher pitcher;

@@ -35,5 +35,9 @@ namespace LemonadeStand_3DayStarter
             money += lemonadePrice;
 
         }
+        public void DisplayHowMuchInWallet()
+        {
+            Console.WriteLine("You have " + money + " in you wallet.");
+        }
     }
 }

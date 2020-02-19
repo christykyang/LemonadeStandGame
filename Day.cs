@@ -14,12 +14,14 @@ namespace LemonadeStand_3DayStarter
         Customer customer;
         public List<Customer> customers;
         Random random;
+        public int numberOfCupsSold;
         //constructor (spawner)
         public Day(string day)
         {
             customers = new List<Customer>();
             weather = new Weather();
             numberOfCustomers = 0;
+            numberOfCupsSold = 0;
         }
         //member methods (CAN DO)
         public void GenerateEachCustomer(Player player, Recipe recipe, Pitcher pitcher)
@@ -36,9 +38,17 @@ namespace LemonadeStand_3DayStarter
             int randomNumber = random.Next(80, 120);
             return randomNumber;
         }
-        public void EndOfDayReport()
+        public void EndOfDayReport(Player player)
         {
-
+            player.inventory.PopulateInventory();
+            player.wallet.DisplayHowMuchInWallet();
+            DisplayHowManyCupsSold(player);
+        }
+        public void DisplayHowManyCupsSold(Player player)
+        {
+            Console.WriteLine("You sold " + player.pitcher.numberOfCupsSold + " cups of lemonade");
+            Console.WriteLine("to " + numberOfCustomers + " potential customers.");
+            Console.ReadLine();
         }
     }
 }

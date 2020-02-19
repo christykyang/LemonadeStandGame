@@ -61,6 +61,7 @@ namespace LemonadeStand_3DayStarter
             BuyFromStore();
             player.QualityControl();
             day.GenerateEachCustomer(player, recipe, pitcher);
+            day.EndOfDayReport(player);
         }
         public void GoToStore()
         {
