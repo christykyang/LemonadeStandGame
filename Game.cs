@@ -57,11 +57,10 @@ namespace LemonadeStand_3DayStarter
         }
         public void RunGame(int day)
         {
-           //inventory.PopulateInventory();
+            player.PopulateInventory();
             BuyFromStore();
             player.PopulateInventory();
             player.QualityControl();
-            player.PopulateInventory();
             days[day].GenerateRandomNumberOfCustomers();
             days[day].GenerateEachCustomer(player, recipe, pitcher);
             days[day].EndOfDayReport(player); 

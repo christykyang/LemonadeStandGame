@@ -34,6 +34,11 @@ namespace LemonadeStand_3DayStarter
                 pitcher.MakePitcher();
             }
         }
+        public void SoldCupOfLemonade(Customer customer)
+        {
+            pitcher.numberOfCupsinPitcher -= customer.amountOfLemonadeBuying;
+            pitcher.numberOfCupsSold++;
+        }
         public void PopulateInventory()
         {
             inventory.numberOfCups = inventory.cups.Count();
@@ -43,6 +48,7 @@ namespace LemonadeStand_3DayStarter
             inventory.numberOfSugarCubes = inventory.sugarCubes.Count();
             Console.WriteLine("Sugar cubes = " + inventory.numberOfSugarCubes);
             inventory.numberOfIceCubes = inventory.iceCubes.Count();
+            Console.WriteLine("Ice cubes = " + inventory.numberOfIceCubes);
         }
         public void QualityControl()
         {

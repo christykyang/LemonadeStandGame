@@ -20,6 +20,7 @@ namespace LemonadeStand_3DayStarter
         public Customer()
         {
             howMuchMoney = 20;
+            random = new Random();
         }
 
         //member methods (what can this do?)
@@ -33,40 +34,76 @@ namespace LemonadeStand_3DayStarter
             customers.Add("Rajah");
             customers.Add("Jafar");
         }
-        public void RandomCustomerGenerator()
+        public void RandomCustomerGenerator(Random random)
         {
             CustomerList(customers);
-            random = new Random();
+            //random = new Random();
             int index = random.Next(customers.Count);
             name = customers[index];
             Console.WriteLine(name);
         }
         public void HowMuchLemonadeToBuy(Player player, Weather weather, Recipe recipe, Pitcher pitcher)
         {
-            random = new Random();
-             if (weather.weatherCondition == weather.ListOfWeatherConditions[1] && weather.temperature >= 70 && recipe.pricePerCup <= 0.15 && recipe.amountOfLemons >= 5 && recipe.amountOfSugarCubes >= 5)
+            //random = new Random();
+             if (weather.weatherCondition == weather.ListOfWeatherConditions[1])
             {
-                amountOfLemonadeBuying = random.Next(3);
-                BuyLemonade(player, recipe, pitcher);
+                if (weather.temperature >= 70)
+                {
+                    if (recipe.pricePerCup <= 0.10)
+                    {
+                        if (recipe.amountOfLemons >= 3)
+                        {
+                            amountOfLemonadeBuying = random.Next(3);
+                            BuyLemonade(player, recipe, pitcher);
+                        }
+                    }
+                }
             }
-            else if (weather.weatherCondition == weather.ListOfWeatherConditions[2] && weather.temperature >= 70 && recipe.pricePerCup <= 0.15 && recipe.amountOfLemons >= 5 && recipe.amountOfSugarCubes >= 5)
+            else if (weather.weatherCondition == weather.ListOfWeatherConditions[2])
             {
-                amountOfLemonadeBuying = random.Next(5);
-                BuyLemonade(player, recipe, pitcher);
+                if (weather.temperature >= 60)
+                {
+                    if (recipe.pricePerCup <= 0.20)
+                    {
+                        if (recipe.amountOfLemons >= 3)
+                        {
+                            amountOfLemonadeBuying = random.Next(5);
+                            BuyLemonade(player, recipe, pitcher);
+                        }
+                    }
+                }
             }
-            else if (weather.weatherCondition == weather.ListOfWeatherConditions[3] && weather.temperature >= 70 && recipe.pricePerCup <= 0.15 && recipe.amountOfLemons >= 5 && recipe.amountOfSugarCubes >= 5)
+            else if (weather.weatherCondition == weather.ListOfWeatherConditions[3])
             {
-                amountOfLemonadeBuying = random.Next(5);
-                BuyLemonade(player, recipe, pitcher);
+                if (weather.temperature >= 65)
+                {
+                    if (recipe.pricePerCup <= 0.15)
+                    {
+                        if (recipe.amountOfLemons >= 3)
+                        {
+                            amountOfLemonadeBuying = random.Next(4);
+                            BuyLemonade(player, recipe, pitcher);
+                        }
+                    }
+                }
             }
             else if (weather.weatherCondition == weather.ListOfWeatherConditions[4] && weather.temperature >= 70 && recipe.pricePerCup <= 0.15 && recipe.amountOfLemons >= 5 && recipe.amountOfSugarCubes >= 5)
             {
-                amountOfLemonadeBuying = random.Next(3);
-                BuyLemonade(player, recipe, pitcher);
+                if (weather.temperature >= 80)
+                {
+                    if (recipe.pricePerCup <= 0.25)
+                    {
+                        if (recipe.amountOfLemons >= 5)
+                        {
+                            amountOfLemonadeBuying = random.Next(5);
+                            BuyLemonade(player, recipe, pitcher);
+                        }
+                    }
+                }
             }
             else if (recipe.pricePerCup <= 0.10)
             {
-                amountOfLemonadeBuying = random.Next(10);
+                amountOfLemonadeBuying = random.Next(3);
                 BuyLemonade(player, recipe, pitcher);
             } 
             else 
@@ -83,13 +120,6 @@ namespace LemonadeStand_3DayStarter
             if (buyLemonade == true && pitcher.numberOfCupsinPitcher <= 0)
             {
                 player.MakeNewPitcher();
-                player.pitcher.SoldCupOfLemonade();
-                PayForLemonade(recipe);
-                player.wallet.GetMoneyFromCustomer(pricePerCup);
-            }
-            else
-            {
-                player.pitcher.SoldCupOfLemonade();
                 PayForLemonade(recipe);
                 player.wallet.GetMoneyFromCustomer(pricePerCup);
             }

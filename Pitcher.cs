@@ -19,9 +19,9 @@ namespace LemonadeStand_3DayStarter
             numberOfCupsSold = 0;
         }
         //member methods (what can the pitcher do?)
-        public void SoldCupOfLemonade()
+        public void SoldCupOfLemonade(Customer customer)
         {
-            numberOfCupsinPitcher -= 1;
+            numberOfCupsinPitcher -= customer.amountOfLemonadeBuying;
             numberOfCupsSold++;
         }
         public void MakePitcher()

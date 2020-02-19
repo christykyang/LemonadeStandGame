@@ -33,7 +33,9 @@ namespace LemonadeStand_3DayStarter
             for (int i = 0; i < numberOfCustomers; i++)
             {
                 customer = new Customer();
+                //customer.RandomCustomerGenerator(random);
                 customer.HowMuchLemonadeToBuy(player, weather, recipe, pitcher);
+                pitcher.SoldCupOfLemonade(customer);
             }
         }
         public int GenerateRandomNumberOfCustomers()
