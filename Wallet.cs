@@ -27,6 +27,8 @@ namespace LemonadeStand_3DayStarter
         public void PayMoneyForItems(double transactionAmount)
         {
             money -= transactionAmount;
+            string value = money.ToString();
+            Console.WriteLine("You currently have " + value + " in your wallet.");
         }
         public void GetMoneyFromCustomer(double lemonadePrice)
         {

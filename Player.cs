@@ -61,15 +61,6 @@ namespace LemonadeStand_3DayStarter
         {
             recipe.pricePerCup = price;
         }
-        public void BuyFromStore(Store store)
-        {
-            Console.WriteLine("You currently have " + inventory.numberOfLemons + " amount of lemons.");
-            Console.WriteLine("Would you like to buy more? (yes or no)");
-            if (Console.ReadLine() == "yes")
-            {
-                Console.WriteLine("How much would you like to purchase? Lemons are 5 cents each.");
-                
-            }
-        }
+        
     }
 }

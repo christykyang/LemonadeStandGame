@@ -34,6 +34,10 @@ namespace LemonadeStand_3DayStarter
             AddIceCubesToInventory(numberOfIceCubes);
             AddLemonsToInventory(numberOfLemons);
             AddSugarCubesToInventory(numberOfSugarCubes);
+            Console.WriteLine("Cups = " + numberOfCups);
+            Console.WriteLine("Ice cubes = " + numberOfIceCubes);
+            Console.WriteLine("Lemons = " + numberOfLemons);
+            Console.WriteLine("Sugar cubes = " + numberOfSugarCubes);
         }
         public void AddLemonsToInventory(int numberOfLemons)
         {
