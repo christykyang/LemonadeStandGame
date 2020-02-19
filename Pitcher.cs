@@ -15,7 +15,7 @@ namespace LemonadeStand_3DayStarter
         //constructor (how the pitcher is made)
         public Pitcher()
         {
-            numberOfCupsinPitcher = 4;
+            numberOfCupsinPitcher = 0;
             numberOfCupsSold = 0;
         }
         //member methods (what can the pitcher do?)
@@ -23,6 +23,10 @@ namespace LemonadeStand_3DayStarter
         {
             numberOfCupsinPitcher -= 1;
             numberOfCupsSold++;
+        }
+        public void MakePitcher()
+        {
+            numberOfCupsinPitcher = 4;
         }
     }
 }

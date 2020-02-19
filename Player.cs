@@ -14,6 +14,7 @@ namespace LemonadeStand_3DayStarter
         public Wallet wallet;
         public Pitcher pitcher;
         public Recipe recipe;
+        public string chargingPrice;
 
         // constructor (SPAWNER)
         public Player()
@@ -30,8 +31,18 @@ namespace LemonadeStand_3DayStarter
         {
             if (pitcher.numberOfCupsinPitcher == 0)
             {
-                pitcher = new Pitcher();
+                pitcher.MakePitcher();
             }
+        }
+        public void PopulateInventory()
+        {
+            inventory.numberOfCups = inventory.cups.Count();
+            Console.WriteLine("Cups = " + inventory.numberOfCups);
+            inventory.numberOfLemons = inventory.lemons.Count();
+            Console.WriteLine("Lemons = " + inventory.numberOfLemons);
+            inventory.numberOfSugarCubes = inventory.sugarCubes.Count();
+            Console.WriteLine("Sugar cubes = " + inventory.numberOfSugarCubes);
+            inventory.numberOfIceCubes = inventory.iceCubes.Count();
         }
         public void QualityControl()
         {
@@ -42,7 +53,8 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine("How much sugar would you like to add per pitcher?");
             ChooseAmountOfSugar(int.Parse(Console.ReadLine()));
             Console.WriteLine("How much are you charging per cup?");
-            ChooseChargingPrice(int.Parse(Console.ReadLine()));
+            chargingPrice = Console.ReadLine();
+            ChooseChargingPrice(Convert.ToDouble((chargingPrice)));
         }
         public void ChooseAmountOfLemon(int lemons)
         {

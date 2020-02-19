@@ -22,6 +22,9 @@ namespace LemonadeStand_3DayStarter
             weather = new Weather();
             numberOfCustomers = 0;
             numberOfCupsSold = 0;
+            //GenerateRandomNumberOfCustomers();
+            //GenerateEachCustomer(player, recipe, pitcher);
+            //EndOfDayReport(player);
         }
         //member methods (CAN DO)
         public void GenerateEachCustomer(Player player, Recipe recipe, Pitcher pitcher)
@@ -35,12 +38,13 @@ namespace LemonadeStand_3DayStarter
         }
         public int GenerateRandomNumberOfCustomers()
         {
+            random = new Random();
             int randomNumber = random.Next(80, 120);
             return randomNumber;
         }
         public void EndOfDayReport(Player player)
         {
-            player.inventory.PopulateInventory();
+            player.PopulateInventory();
             player.wallet.DisplayHowMuchInWallet();
             DisplayHowManyCupsSold(player);
         }

@@ -12,7 +12,6 @@ namespace LemonadeStand_3DayStarter
         Player player;
         Recipe recipe;
         Store store;
-        Day day;
         Inventory inventory;
         Weather weather;
         Pitcher pitcher;
@@ -49,19 +48,23 @@ namespace LemonadeStand_3DayStarter
             for (int i = 0; i < days.Count; i++)
             {
                 currentDay = i;
+                Console.WriteLine("Today is " + currentDay);
                 weather.RandomWeatherGenerator();
                 weather.RandomTemperatureGenerator();
-                RunGame();
+                RunGame(currentDay);
             }
             
         }
-        public void RunGame()
+        public void RunGame(int day)
         {
-            inventory.PopulateInventory();
+           //inventory.PopulateInventory();
             BuyFromStore();
+            player.PopulateInventory();
             player.QualityControl();
-            day.GenerateEachCustomer(player, recipe, pitcher);
-            day.EndOfDayReport(player);
+            player.PopulateInventory();
+            days[day].GenerateRandomNumberOfCustomers();
+            days[day].GenerateEachCustomer(player, recipe, pitcher);
+            days[day].EndOfDayReport(player); 
         }
         public void GoToStore()
         {
@@ -70,7 +73,7 @@ namespace LemonadeStand_3DayStarter
         }
         public void BuyFromStore()
         {
-            Console.WriteLine("Lemons are 5 cents each.");
+            Console.WriteLine("Lemons are 50 cents each.");
             store.SellLemons(player);
             Console.WriteLine("Sugar are 10 cents each.");
             store.SellSugarCubes(player);

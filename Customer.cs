@@ -15,13 +15,11 @@ namespace LemonadeStand_3DayStarter
         public double pricePerCup;
         public double howMuchMoney;
         public string name;
-        public List<string> ListOfCustomers;
+        public List<string> customers;
         //constructor (spawner)
         public Customer()
         {
             howMuchMoney = 20;
-            CustomerList(ListOfCustomers);
-            RandomCustomerGenerator();
         }
 
         //member methods (what can this do?)
@@ -37,30 +35,33 @@ namespace LemonadeStand_3DayStarter
         }
         public void RandomCustomerGenerator()
         {
-            int index = random.Next(ListOfCustomers.Count);
-            name = ListOfCustomers[index];
+            CustomerList(customers);
+            random = new Random();
+            int index = random.Next(customers.Count);
+            name = customers[index];
             Console.WriteLine(name);
         }
         public void HowMuchLemonadeToBuy(Player player, Weather weather, Recipe recipe, Pitcher pitcher)
         {
-             if (weather.weatherCondition == weather.ListOfWeatherConditions[1] && weather.temperature >= 70 && recipe.pricePerCup <= 0.25)
+            random = new Random();
+             if (weather.weatherCondition == weather.ListOfWeatherConditions[1] && weather.temperature >= 70 && recipe.pricePerCup <= 0.15 && recipe.amountOfLemons >= 5 && recipe.amountOfSugarCubes >= 5)
             {
-                amountOfLemonadeBuying = random.Next(4);
+                amountOfLemonadeBuying = random.Next(3);
                 BuyLemonade(player, recipe, pitcher);
             }
-            else if (weather.weatherCondition == weather.ListOfWeatherConditions[2] && weather.temperature >= 70 && recipe.pricePerCup <= 0.25)
+            else if (weather.weatherCondition == weather.ListOfWeatherConditions[2] && weather.temperature >= 70 && recipe.pricePerCup <= 0.15 && recipe.amountOfLemons >= 5 && recipe.amountOfSugarCubes >= 5)
             {
-                amountOfLemonadeBuying = random.Next(10);
+                amountOfLemonadeBuying = random.Next(5);
                 BuyLemonade(player, recipe, pitcher);
             }
-            else if (weather.weatherCondition == weather.ListOfWeatherConditions[3] && weather.temperature >= 70 && recipe.pricePerCup <= 0.25)
+            else if (weather.weatherCondition == weather.ListOfWeatherConditions[3] && weather.temperature >= 70 && recipe.pricePerCup <= 0.15 && recipe.amountOfLemons >= 5 && recipe.amountOfSugarCubes >= 5)
             {
-                amountOfLemonadeBuying = random.Next(7);
+                amountOfLemonadeBuying = random.Next(5);
                 BuyLemonade(player, recipe, pitcher);
             }
-            else if (weather.weatherCondition == weather.ListOfWeatherConditions[4] && weather.temperature >= 70 && recipe.pricePerCup <= 0.25)
+            else if (weather.weatherCondition == weather.ListOfWeatherConditions[4] && weather.temperature >= 70 && recipe.pricePerCup <= 0.15 && recipe.amountOfLemons >= 5 && recipe.amountOfSugarCubes >= 5)
             {
-                amountOfLemonadeBuying = random.Next(4);
+                amountOfLemonadeBuying = random.Next(3);
                 BuyLemonade(player, recipe, pitcher);
             }
             else if (recipe.pricePerCup <= 0.10)
